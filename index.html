@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>倒计时15秒
+	 </title>
+	<style>
+		#box{
+			width:600px;
+			height: 400px;
+			background: #ccc;
+			position: absolute;
+			left:50%;
+			top:50%;
+			margin-left: -300px;
+			margin-top: -200px;
+			border:3px solid red;}
+		#box span{
+			width:100px;
+			height: 30px;
+			position: absolute;
+			left: 50%;top:80%;
+			background:#fefefe;
+			text-align: center;
+			line-height: 30px;
+			cursor:pointer;
+			margin-left: -50px;}
+	</style>
+</head>
+<body>
+	<div id=box>
+		<span>倒计时15秒</span>
+	</div>
+	<script>
+		var box=document.getElementById('box');
+		var span=document.getElementsByTagName('span');
+		var timer=null;
+		var i=15
+
+		function arr(){
+			i--
+			span[0].innerHTML='倒计时'+i+'秒'
+		
+			if(i<0){
+				clearInterval(timer)
+				span[0].innerHTML='关闭'
+			}
+		}
+
+			span[0].onclick=function(){
+				if(span[0].innerHTML == '关闭'){
+					box.style.display='none'
+				}else{
+					return false;
+				}
+				console.log(span[0].innerHTML)
+
+			}
+
+
+		timer=setInterval(arr,1000 )
+	</script>
+</body>
+</html>
